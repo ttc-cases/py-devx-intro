@@ -10,7 +10,7 @@ Use this repo as a `template` - not a `fork`[^template]
 
 [^template]: `template` and `fork` are two different concepts although somewhat similar; Forks clone all branches and all history and they maintain a relation to the repo they forked off, allowing them to push and pull back and forth. Templates on the other side are are completely detached from the source and they only take the `HEAD` commit on the default branch; [it's a fresh start](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates). 
 
-[`Code` >> `Use this template` >> `Create new repository`](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
+[`Use this template` >> `Create new repository`](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
 
 #### 👉 Work those issues 👈
 
