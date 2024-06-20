@@ -47,19 +47,29 @@ If you have accepted this tutorial from a Github Classroom invitation, then at r
 
 >[!NOTE]
 >It's also possible to run this tutorial without a formal invite to GitHub Classroom:
-
-<details><summary><b>👉 Create your own copy of this repo 👈</b></summary>
-Use this repo as a `template` 
-
-[`Use this template` >> `Create new repository`](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
-
-</details>
+> 
+><details><summary><b>👉 Create your own copy of this repo 👈</b></summary>
+>
+>Use this repo as a <code>template</code> 
+>
+>In the upper right corner find the button [_Use this template`_ and then _Create new repository_](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
+>
+></details>
 
 #### 👉 Work those issues 👈
 
-<img width="100" align="left" alt="image" src="https://user-images.githubusercontent.com/155492/219313640-1328aefb-7695-41d2-bbef-5c5ffe6ab079.png"> There's a automated GitHub Actions workflow that starts immidately when you generate your repository - it copies some template issues over to your own repo - It may take 15-20 seconds to finish - You can monitor it in the `Actions` tab - of your own newly created repo.
+<img width="100" align="left" alt="image" src="https://user-images.githubusercontent.com/155492/219313640-1328aefb-7695-41d2-bbef-5c5ffe6ab079.png"> There's a automated GitHub Actions workflow that starts immidately when you generate your repository - it copies some template issues over to your own repo - It may take 15-20 seconds to finish - You can monitor it in the `Actions` tab - of your own newly created repo. When the job i finished at the issues are copied over, you are good to go.
 
-Continue there - in your own repo. Go to the "issues" tab in your own copy and simply work the issues.
+Continue there - in your own repo. Go to the ["issues"](../../issues) tab in your own copy and simply work the issues.
+
+#### 👉 One (or more) commits per issues 👈
+Please work the issues in such a way, that you deliver at least one - or potentially more - commits per issue, be sure to mention the isssue in the commit message. 
+
+Small commits are cute - big commits are ugly:
+
+>[!CAUTION]
+>Restrain youself from comitting stuff,
+>that spans more than one issue.
 
 #### 👉 If you need help 👈
 The [discussions](https://github.com/thetechcollective/py-devx-intro/discussions "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link") are enabled on the template repo (your source). If you need help, if you want to suggets improvements or if you have an urge to contribute to this tutorial - simply make a statement in the discussions. Feel free to mention me; [@lakruzz](https://github.com/lakruzz).
