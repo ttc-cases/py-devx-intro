@@ -9,11 +9,11 @@ So what are the problems that this tutorial tries to offer a soultion to? Imagin
 > A team of developers is working on a system in Python. Everyone is developing on their own PC which they have setup according to information on a project wiki - which isn't updated since long, so to get up and running in the team, new team members also need to have a couple of sit-down sessions with one of the senior team members, who seems to know stuff that isn't really documented anywhere. The members in the team often experience that somthing works on one colleague's PC while the same thing apparently doesn't work on someone else's PC. At one point a team member joined who had a preference to work on a MacBook _"...in your dreams!"_ that didn't work at all, now everyone is on Windows.
 >
 > The team uses git and GitHub, but there is no agreed branching strategy and as we speak the `main` branch is so far behind the `fix-database-screwup` branch which in reality has become the _de facto_ integration branch which everyone is refering to. The team has a joint trauma, that branching off only seem to create troubles and merge conflicts when coming back, so most team members work directly on `fix-database-screwup` but merge conflicts hasn't been less frequent on that account.
-> >
-> The team has a workflow setup in GitHub Actions, but it doesn't do much - it doesn't even build, since Python is interpreted and not complied - and the project doesn't have any unit tests yet. The job may not even be running. Nobody looked at it for months.
+>
+> > The team has a workflow setup in GitHub Actions, but it doesn't do much - it doesn't even build, since Python is interpreted and not complied - and the project doesn't have any unit tests yet. The job may not even be running. Nobody looked at it for months.
 >
 > The typical approach to debugging of the code is to print out a variable's value to the console. In fact there is a lot of code in the codebaase that is commented out - either because it's debug statments not needed anymore or it's code that is not used, but left behind as history or for potential future reuse. Who knows.
-> 
+>
 > Releases are done by one of two team members who are the only ones who have access to the production servers. Exactly what they do when they upgrade the system is a bit blury. They may have some step-by-step notes in a Google document, they share just among the two of them. Which is probably OK, since it also hold some passwords and web tokens.
 >
 > The team uses a Miro board to keep track of their tasks and backlog, the agreement is that commit mesages should refer to the task in miro by mentioning the title on the miro notes, but it's so-so with that discipline. Roughly half of all commit messageas are - well - _meaningless_. And by the way, there are probably more task written directly in the codebase as in-line comments stating with `#TODO:` so searching for exactly thagt phrase in the codebase often gives more meaning than looking in the Miro board.
@@ -22,16 +22,18 @@ So what are the problems that this tutorial tries to offer a soultion to? Imagin
 >
 > After a freze - the team has a day or two with mostly merge conflicts.
 
-Well, There seems to be a long array of bad habits in this team's processes. Hopefully your team doesn't suffer from all af these. But maybe some? 
+Well, There seems to be a long array of bad habits in this team's processes. Hopefully your team doesn't suffer from all af these. But maybe some?
 
-This littel anekcdote was just meant to set the scene. We will not revisit these problems again but instead focus on how to setup a green-field environment, and how to work in a way where they can easily be avoided. Fixing _all_ of these issues are really to be considered low-hanging fruits. 
+This littel anekcdote was just meant to set the scene. We will not revisit these problems again but instead focus on how to setup a green-field environment, and how to work in a way where they can easily be avoided. Fixing _all_ of these issues are really to be considered low-hanging fruits.
 
 This tutorial will offer you a handful of issues in GitHub. By following these issues you will - step-by-step - build up a small codebase and in the processe familiarize youself with:
+
 > [!TIP]
+>
 > - **Declatively define a devcontainer** and configure the extensions used in VS Code - This will ensure that all contributors has idetical offset conditions before they start hacking (IDP = Internal Developemt Platform).
-> - **Declatively define and spinup a virtual Python environment** inside that devcontainer - to ensure that no implicit or hidden settings could ever interfere with runtime environment. 
+> - **Declatively define and spinup a virtual Python environment** inside that devcontainer - to ensure that no implicit or hidden settings could ever interfere with runtime environment.
 > - **Setup the Python debugger**, configure it to your specific needs and save and share the declarative settings for all other team members to use.
-> - **Create a unit test and set up the unit test framework** to serve your specific needs and save and share the settings for all other team members to use. 
+> - **Create a unit test and set up the unit test framework** to serve your specific needs and save and share the settings for all other team members to use.
 > - **Take the first step into deconstructing you codebase** into individually manageable modules and classes and deal with the internal dependencies this strategies imposes.
 > - **Create development branches** for each individual task you work on.
 > - **Tie commits to tasks** through clever mentions of issue numbers in the commit messages.
@@ -45,16 +47,16 @@ When the instructional part of this tutorial is done, you will have the option t
 
 If you have accepted this tutorial from a Github Classroom invitation, then at repository has automacially been created for you.
 
->[!NOTE]
->It's also possible to run this tutorial without a formal invite to GitHub Classroom:
-> 
-><details><summary><b>👉 Create your own copy of this repo 👈</b></summary>
+> [!NOTE]
+> It's also possible to run this tutorial without a formal invite to GitHub Classroom:
 >
->Use this repo as a <code>template</code> 
+> <details><summary><b>👉 Create your own copy of this repo 👈</b></summary>
 >
->In the upper right corner find the button [_Use this template`_ and then _Create new repository_](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
+> Use this repo as a <code>template</code>
 >
-></details>
+> In the upper right corner find the button [_Use this template`_ and then _Create new repository_](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
+>
+> </details>
 
 #### 👉 Work those issues 👈
 
@@ -63,20 +65,20 @@ If you have accepted this tutorial from a Github Classroom invitation, then at r
 Continue there - in your own repo. Go to the ["issues"](../../issues) tab in your own copy and simply work the issues in sequence starting with `#1`.
 
 #### 👉 One (or more) commits per issues 👈
-Please work the issues in such a way, that you deliver at least one - or potentially more - commits per issue, be sure to mention the isssue in the commit message. 
 
->[!CAUTION]
->Restrain youself from comitting stuff,
->that spans more than one issue.
+Please work the issues in such a way, that you deliver at least one - or potentially more - commits per issue, be sure to mention the isssue in the commit message.
+
+> [!CAUTION]
+> Restrain youself from comitting stuff,
+> that spans more than one issue.
 >
->  👍 More than one commit per issue
->  👎 More than one issue per commit
+> 👍 More than one commit per issue
+> 👎 More than one issue per commit
 
 #### 👉 Note to self 👈
 
 Make it a habit do write plenty of notes in the comments of each issue. Utilize your MarkDown skills and write beautyful documentation. Think of it as _a note to self;_ Imagine you come back and read this repo 6 months out in the futue, you want to be able to to follow you own lead and chain of though to the solutions. And so does your (imaginary) team mates.
 
 #### 👉 If you need help 👈
+
 The [discussions](https://github.com/thetechcollective/py-devx-intro/discussions "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link") are enabled on the template repo (your source). If you need help, if you want to suggets improvements or if you have an urge to contribute to this tutorial - simply make a statement in the discussions. Feel free to mention me; [@lakruzz](https://github.com/lakruzz).
-
-
