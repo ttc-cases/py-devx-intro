@@ -1,0 +1,11 @@
+[push]
+  default = current 
+
+[alias]
+  undo-commit = reset --soft HEAD^
+  redo-commit = commit -C HEAD --amend 
+  addremove = add -A
+  co = checkout
+  st = status
+  root = rev-parse --show-toplevel
+  tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
