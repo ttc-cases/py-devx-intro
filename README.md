@@ -67,7 +67,7 @@ Please work the issues in such a way, that you deliver at least one - or potenti
 >Restrain youself from comitting stuff,
 >that spans more than one issue.
 >
->  👍 More than one commit per issue
+>  👍 More than one commit per issue<br/>
 >  👎 More than one issue per commit
 
 #### 👉 Note to self 👈
