@@ -1,0 +1,44 @@
+name: Initial commit workflow
+
+on:
+  push:
+    branches:
+      - '**' 
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions:
+  checks:   write
+  actions:  write   
+  contents: write   
+  issues:   write   
+
+concurrency:
+  group: "cpissues"
+  cancel-in-progress: false
+
+jobs:
+  cpissues:
+    name: "Initial commit only"
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.head_commit.message, 'Initial commit') }}
+    steps:       
+      - name: "Checkout"
+        uses: actions/checkout@v3
+        
+      - name: "Raise semaphore (cancel workflow) or quit"
+        run: |
+          if $(gh workflow disable template.yml); then
+            echo ::notice title=Workflow successfully disabled::This also works as a raised semaphore - parallel workflow runs will see it and cancel
+          else
+            echo "::warning title=Another job got here first::This room is crowded - I'm outta here!"
+            gh api -X POST /repos/{owner}/{repo}/actions/runs/${{ github.run_id }}/cancel
+            exit 1
+          fi
+          
+      - name: "Copying issues over from template repo"
+        run: |
+          gh extension install thetechcollective/gh-cpissues
+          gh cpissues thetechcollective/py-devx-intro --label template
+      
