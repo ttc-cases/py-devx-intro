@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - '**' 
+  issues:
+    types: [opened]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ISSUE_LABEL: template
+  ISSUE_REPO: ttc-cases/py-devx-intro
 
 permissions:
-  checks:   write
   actions:  write   
   contents: write   
   issues:   write   
@@ -20,25 +23,25 @@ concurrency:
 
 jobs:
   cpissues:
-    name: "Initial commit only"
+    name: "Copy issues from template"
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.message, 'Initial commit') }}
     steps:       
       - name: "Checkout"
-        uses: actions/checkout@v3
-        
-      - name: "Raise semaphore (cancel workflow) or quit"
-        run: |
-          if $(gh workflow disable template.yml); then
-            echo ::notice title=Workflow successfully disabled::This also works as a raised semaphore - parallel workflow runs will see it and cancel
-          else
-            echo "::warning title=Another job got here first::This room is crowded - I'm outta here!"
-            gh api -X POST /repos/{owner}/{repo}/actions/runs/${{ github.run_id }}/cancel
-            exit 1
-          fi
+        uses: actions/checkout@v4
           
       - name: "Copying issues over from template repo"
         run: |
           gh extension install thetechcollective/gh-cpissues
-          gh cpissues thetechcollective/py-devx-intro --label template
+          gh cpissues $ISSUE_REPO --label $ISSUE_LABEL
+          echo ::notice title=Copied issues with label \'$ISSUE_LABEL\'::From the public source repository \'$ISSUE_REPO\'
+        
+      - name: "Only run once"
+        run: |
+          if $(gh workflow disable "${{ github.workflow }}" ); then
+            echo ::notice title=Workflow successfully disabled::This workflow is designed to only run once — therefore this run disabled the workflow defined by \'$WORKFLOW_FILE\'.
+          else
+            echo "::warning title=Couldn't disable the workflow::This shouldn't have happened — something is wrong!"
+            gh api -X POST /repos/{owner}/{repo}/actions/runs/${{ github.run_id }}/cancel
+            exit 1
+          fi
       

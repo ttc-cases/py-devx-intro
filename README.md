@@ -41,26 +41,24 @@ When you are done with this tutorial you will have created something that can ea
 
 When the instructional part of this tutorial is done, you will have the option to enter into the _Problem Solving_ chapter. Should you accept the challenge, you will be given a handful of complementary issues but these are not set up as instructions, but rather they present som relevant problems and challenges - andd you are then encouraged to suggest some solutions to these. And commit them to the repo
 
-## How to work this tutorial and the challenges
+[^notghclassroom]: If you _didn't_ get here from a GitHub Classroom assignment you are truly ingenious and curious. But to participate you must enter from the [GitHub Classroom assignment](https://classroom.github.com/a/J7SqZWtl) - Go there and accept the assignment — and you will end up here again, only in a different setting.
 
-If you have accepted this tutorial from a Github Classroom invitation, then at repository has automacially been created for you.
+During this exercise you will have your own GitHub repository. It's private, so only you and we can see your replies and reflections. You will _not_ be asked to write code or build anything. In this exercise we only use the GitHub Issues in your repo to get your replies an reflections. And if you choose you can even engage with us in the process — more on how to do that later.
 
->[!NOTE]
->It's also possible to run this tutorial without a formal invite to GitHub Classroom:
-> 
-><details><summary><b>👉 Create your own copy of this repo 👈</b></summary>
->
->Use this repo as a <code>template</code> 
->
->In the upper right corner find the button [_Use this template`_ and then _Create new repository_](/../../generate "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link")
->
-></details>
+If - by the end of this exercise - you still find that becoming a member of our team is attractive and relevant then the very last assignment is simply to use the link we provide in the end to book us for a video meeting (...or maybe you have booed it already) where we can go over your replies and reflections and get to know each other a bit.
+
+## How to do this exercise[^notghclassroom]
+
+**👉 Your first task is to create an issue... 👈**
+
+When you hit the button "New issue" you'll be presented to a few different options. Use the [**A bit about you**](../../issues/new?template=background.yml) template. The issue you create will present you to a small form — use your full name as the issue title. 
+
 
 #### 👉 Work those issues 👈
 
-<img width="100" align="left" alt="image" src="https://user-images.githubusercontent.com/155492/219313640-1328aefb-7695-41d2-bbef-5c5ffe6ab079.png"> There's a automated GitHub Actions workflow that starts immidately when you generate your repository - it copies some template issues over to your own repo - It may take 15-20 seconds to finish - You can monitor it in the `Actions` tab - of your own newly created repo. When the job is finished at the issues are copied over, you are good to go.
+<img width="100" align="left" alt="image" src="https://user-images.githubusercontent.com/155492/219313640-1328aefb-7695-41d2-bbef-5c5ffe6ab079.png">Immediately after you submit your first issues an automated GitHub Actions workflow starts - it copies some template issues over to your own repo - It may take 15-20 seconds to finish - You can monitor it in the [`Actions`](../../actions) tab. When the job is finished and the issues are copied over, you are good to go.
 
-Continue there - in your own repo. Go to the ["issues"](../../issues) tab in your own copy and simply work the issues in sequence starting with `#1`.
+Continue there, work those [issues](../../issues)
 
 #### 👉 One (or more) commits per issues 👈
 Please work the issues in such a way, that you deliver at least one - or potentially more - commits per issue, be sure to mention the isssue in the commit message. 
@@ -74,9 +72,13 @@ Please work the issues in such a way, that you deliver at least one - or potenti
 
 #### 👉 Note to self 👈
 
-Make it a habit do write plenty of notes in the comments of each issue. Utilize your MarkDown skills and write beautyful documentation. Think of it as _a note to self;_ Imagine you come back and read this repo 6 months out in the futue, you want to be able to to follow you own lead and chain of though to the solutions. And so does your (imaginary) team mates.
+Make it a habit do write plenty of notes in the comments of each issue. Utilize your MarkDown skills and write beautiful documentation. Think of it as _a note to self;_ Imagine you come back and read this repo 6 months out in the future, you want to be able to to follow you own lead and chain of though to the solutions. And so does your (imaginary) team mates.
 
 #### 👉 If you need help 👈
-The [discussions](https://github.com/thetechcollective/py-devx-intro/discussions "Note that all links in GitHub issues, discussions and .md files opens default in the same tab as your current - so make it a habit to hold down CTRL (Windows & Linux) or ⌘ (Mac) when you click a link") are enabled on the template repo (your source). If you need help, if you want to suggets improvements or if you have an urge to contribute to this tutorial - simply make a statement in the discussions. Feel free to mention me; [@lakruzz](https://github.com/lakruzz).
 
+At any time, if you need help, you have options:
+
+1. Feel free to mention me [@lakruzz](https://github.com/lakruzz) in any of your issues.
+2. Chat me up on LinkedIn (also) [@lakruzz](https://www.linkedin.com/in/lakruzz/).
+3. Join the [public discussions in "The Tech Collective - Case Library"](https://github.com/orgs/ttc-cases/discussions/categories/-tech-that-chat)
 

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Do you need help with this exercise 
+    url: https://github.com/orgs/ttc-cases/discussions/
+    about: Or maybe you want to report and error or suggest an improvement. The link takes you to our public discussion on our case library.  
