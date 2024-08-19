@@ -35,7 +35,7 @@ body:
       description: |
         If you have any relevant material or links publicly available on the internet that you would would like to draw our attention to. Please list them here.
       placeholder: |
-        I possess the following full-stack relevant skills...
+        Linkedin posts, blog posts, articles, videos, podcasts, slide decks etc.
     validations:
       required: true
 
