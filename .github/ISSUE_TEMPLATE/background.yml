@@ -37,7 +37,7 @@ body:
       placeholder: |
         Linkedin posts, blog posts, articles, videos, podcasts, slide decks etc.
     validations:
-      required: true
+      required: false
 
   - type: markdown
     attributes:
