@@ -8,7 +8,8 @@ on:
     types: [opened]
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ github.token }}
+  GH_TOKEN: ${{ github.token }}
   ISSUE_LABEL: template
   ISSUE_REPO: ttc-cases/py-devx-intro
 
@@ -23,17 +24,36 @@ concurrency:
 
 jobs:
   cpissues:
+    permissions: write-all
     name: "Copy issues from template"
     runs-on: ubuntu-latest
     steps:       
       - name: "Checkout"
         uses: actions/checkout@v4
           
-      - name: "Copying issues over from template repo"
+      - name: "Copying issues over from template repo (with retry)"
+        shell: bash
         run: |
+          set -euo pipefail
+      
           gh extension install thetechcollective/gh-cpissues
-          gh cpissues $ISSUE_REPO --label $ISSUE_LABEL
-          echo ::notice title=Copied issues with label \'$ISSUE_LABEL\'::From the public source repository \'$ISSUE_REPO\'
+      
+          max_attempts=6
+          attempt=1
+          until gh cpissues "$ISSUE_REPO" --label "$ISSUE_LABEL"; do
+            exit_code=$?
+            if [[ $attempt -ge $max_attempts ]]; then
+              echo "::error::gh cpissues failed after $attempt attempts (last exit code: $exit_code)"
+              exit $exit_code
+            fi
+      
+            sleep_seconds=$((attempt * 10))
+            echo "::warning::gh cpissues failed (attempt $attempt/$max_attempts, exit $exit_code). Sleeping ${sleep_seconds}s then retrying..."
+            sleep "$sleep_seconds"
+            attempt=$((attempt + 1))
+          done
+      
+          echo "::notice title=Copied issues with label '$ISSUE_LABEL'::From the public source repository '$ISSUE_REPO'" 
         
       - name: "Only run once"
         run: |
